@@ -1,20 +1,5 @@
-import { Controller, Module, Get } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-
-// Run on root router
-@Controller()
-class AppController {
-  @Get()
-  getRootRoute() {
-    return "hi there!";
-  }
-}
-
-// Wrap all controllers, Nest will create an instances for all our controllers classes
-@Module({
-  controllers: [AppController],
-})
-class AppModule {}
+import { AppModule } from "./app.module";
 
 // Func runs everytime anytime we start our application
 async function bootstrap() {
