@@ -8,4 +8,5 @@
 | -------- | ------ | -------------------------- |
 | tasks/   | GET    | Get Tasks (inclu. filters) |
 
-[]
+[X] Task 1
+[] Task 1
