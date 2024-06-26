@@ -4,7 +4,8 @@
 
 ## API Endpoints - Tasks
 
-| Endpoint | Method | Description |
-| tasks/ | GET | Get Tasks (inclu. filters) |
+| Endpoint | Method | Description                |
+| -------- | ------ | -------------------------- |
+| tasks/   | GET    | Get Tasks (inclu. filters) |
 
 []
