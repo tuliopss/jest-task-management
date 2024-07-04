@@ -47,8 +47,6 @@ describe('TaskService Tests', () => {
       }),
     ];
     const result = tasksService.getAllTasks();
-    console.log('resul: ', result);
-    console.log('taskList: ', taskList);
 
     expect(result).toEqual(taskList);
   });
@@ -63,5 +61,36 @@ describe('TaskService Tests', () => {
     const task = tasksService.getTaskById(newTask.id);
 
     expect(task).toBe(newTask);
+  });
+
+  it('should update a task status', () => {
+    const newTask = tasksService.createTask({
+      title: 'testing',
+      description: 'describe',
+    });
+
+    const taskUpdatedDone = tasksService.updateTaskStatus(
+      newTask.id,
+      TaskStatus.DONE,
+    );
+
+    expect(taskUpdatedDone.status).toBe(TaskStatus.DONE);
+
+    const taskUpdatedInProgress = tasksService.updateTaskStatus(
+      newTask.id,
+      TaskStatus.IN_PROGRESS,
+    );
+    expect(taskUpdatedInProgress.status).toBe(TaskStatus.IN_PROGRESS);
+  });
+
+  it('Should delete a task', () => {
+    const newTask = tasksService.createTask({
+      title: 'testing',
+      description: 'describe',
+    });
+
+    const taskToDelete = tasksService.deleteTaskById(newTask.id);
+
+    expect(taskToDelete).toBeUndefined();
   });
 });
