@@ -6,27 +6,6 @@ import { v4 as uuid } from 'uuid';
 describe('TaskService Tests', () => {
   let tasksService: TasksService;
 
-  // let tasksList = [
-  //   {
-  //     id: uuid(),
-  //     title: 'test1',
-  //     description: 'description test',
-  //     status: TaskStatus.OPEN,
-  //   },
-  //   {
-  //     id: uuid(),
-  //     title: 'test2',
-  //     description: 'description test',
-  //     status: TaskStatus.OPEN,
-  //   },
-  //   {
-  //     id: uuid(),
-  //     title: 'tes3t',
-  //     description: 'description test',
-  //     status: TaskStatus.OPEN,
-  //   },
-  // ];
-
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       providers: [TasksService],
@@ -72,5 +51,17 @@ describe('TaskService Tests', () => {
     console.log('taskList: ', taskList);
 
     expect(result).toEqual(taskList);
+  });
+
+  it('should get a task by id', () => {
+    const newTask = tasksService.createTask({
+      title: 'testing',
+      description: 'describe',
+      // status: TaskStatus.OPEN,
+    });
+
+    const task = tasksService.getTaskById(newTask.id);
+
+    expect(task).toBe(newTask);
   });
 });
